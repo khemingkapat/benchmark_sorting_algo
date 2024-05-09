@@ -19,34 +19,20 @@ int main() {
 
     int size = 0;
     int *arr = (int *)malloc(sizeof(int) * size);
-    int idx = 0;
 
-    /* while (!feof(file)) { */
-    /*     size++; */
-    /*     arr = (int *)realloc(arr, sizeof(int) * size); */
-    /*     fgets(buffer, 10, file); */
-    /*     buffer[strcspn(buffer, "\n")] = 0; // strip the eol */
-    /*     printf("%d",atoi(buffer)); */
-    /*     arr[idx] = atoi(buffer); */
-    /*     idx++; */
-    /*  */
-    /*     fgets(buffer, 10, file); */
-    /*     buffer[strcspn(buffer, "\n")] = 0; // strip the eol */
-    /*     printf("%d",atoi(buffer)); */
-    /*      */
-    /* } */
-
-    do {
-        fgets(buffer, 10, file);
+    while (fgets(buffer,10,file)!= NULL) {
+        size++;
+        arr = (int *)realloc(arr, sizeof(int) * size);
         buffer[strcspn(buffer, "\n")] = 0; // strip the eol
-        printf("%d ",atoi(buffer));
+        arr[size-1] = atoi(buffer);
+    
+    }
 
-    }while(!feof(file));
     fclose(file);
 
-    /* for(int i = 0;i<size;i++){ */
-    /*     printf("%d ",arr[i]); */
-    /* } */
+    for(int i = 0;i<size;i++){
+        printf("%d ",arr[i]);
+    }
     puts("");
     return 0;
 }
