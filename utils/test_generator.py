@@ -32,7 +32,7 @@ class Writer(ABC):
 
 class Normal(Writer):
     def get_output(self) -> Tuple:
-        n = np.random.randint(0,1_000_000)
+        n = np.random.randint(0,5000)
         maximum = np.random.randint(0,101)
         minimum = np.random.randint(-100,0)
 
@@ -71,5 +71,5 @@ class Partial(Writer):
 
             return ([n,minimum,maximum,shuffle_precent],arr)
 
-Partial().generate_test(2)
+Normal().generate_test(1)
 

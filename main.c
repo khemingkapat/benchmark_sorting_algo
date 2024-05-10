@@ -1,16 +1,29 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "time.h"
 #include "utils/readfile.h"
 #include "utils/timereport.h"
 
 void bubble_sort(int *arr, int n);
 
-int main() {
-    int arr[] = {3, 1, 4, 2, 5};
-    int n = 5;
+void fun() {
+    printf("fun() starts \n");
+    printf("Press enter to stop fun \n");
+    while (1) {
+        if (getchar())
+            break;
+    }
+    printf("fun() ends \n");
+}
 
-    double time_used = time_function(bubble_sort, &arr, n);
-    printf("%lf\n",time_used);
+int main() {
+    int *arr = (int *)malloc(sizeof(int));
+
+    int n = array_from_file(arr, "tests/normal1.txt");
+
+    double time_used = time_function(bubble_sort,arr,n);
+    printf("time used = %lf\n",time_used);
+    
 
     return 0;
 }

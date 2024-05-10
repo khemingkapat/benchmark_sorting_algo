@@ -12,7 +12,7 @@ double time_function(void (*sort)(int*,int),int *arr,int n){
 
     clock_t end = clock();
 
-    return (double)(end-begin)/CLOCKS_PER_SEC;
+    return (double)(clock()-begin);
 }
 
 
