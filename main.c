@@ -1,23 +1,28 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "utils/readfile.h"
+#include "utils/timereport.h"
+
+void bubble_sort(int *arr, int n);
 
 int main() {
-    int *header = (int *)malloc(sizeof(int));
-    int n = header_from_file(header, "test_file.txt");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", header[i]);
-    }
-    puts("");
+    int arr[] = {3, 1, 4, 2, 5};
+    int n = 5;
 
-    int *arr = (int *)malloc(sizeof(int));
-    n = array_from_file(arr, "test_file.txt");
-    /* puts("got array"); */
-
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    puts("");
+    double time_used = time_function(bubble_sort, &arr, n);
+    printf("%lf\n",time_used);
 
     return 0;
+}
+
+void bubble_sort(int *arr, int n) {
+    for (int i = n; i >= 1; i--) {
+        for (int j = 1; j < i; j++) {
+            if (arr[j - 1] > arr[j]) {
+                int temp = arr[j];
+                arr[j] = arr[j - 1];
+                arr[j - 1] = temp;
+            }
+        }
+    }
 }
