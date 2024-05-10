@@ -31,17 +31,45 @@ class Writer(ABC):
             
 
 class Normal(Writer):
-    def __init__(self):
-        pass
-
     def get_output(self) -> Tuple:
         n = np.random.randint(0,1_000_000)
-        mean = np.random.rand()*100
-        sd = abs(np.random.rand())*5
+        maximum = np.random.randint(0,101)
+        minimum = np.random.randint(-100,0)
 
-        arr = np.random.normal(mean,sd,n)
+        arr = np.random.randint(minimum,maximum,n)
 
-        return ([n,mean,sd],arr)
+        return ([n,minimum,maximum],arr)
 
-normal = Normal()
-normal.generate_test(5)
+class Descend(Writer):
+    def get_output(self)->Tuple:
+        n = np.random.randint(0,1_000_000)
+        maximum = np.random.randint(0,101)
+        minimum = np.random.randint(-100,0)
+
+        arr = -np.sort(-np.random.randint(minimum,maximum,n))
+
+        return ([n,minimum,maximum],arr)
+
+class Partial(Writer):
+    def get_output(self)->Tuple:
+        n = np.random.randint(0,1_000_000)
+        maximum = np.random.randint(0,101)
+        minimum = np.random.randint(-100,0)
+
+        arr = np.sort(np.random.randint(minimum,maximum,n))
+
+        list_idx = list(range(n))
+        np.random.shuffle(list_idx)
+
+        shuffle_precent = np.random.randint(20,80)
+
+        for _ in range(int(n*shuffle_precent/100)//2):
+            arr[list_idx[0]],arr[list_idx[1]] = arr[list_idx[1]],arr[list_idx[0]]
+            
+            list_idx.pop(0)
+            list_idx.pop(0)
+
+            return ([n,minimum,maximum,shuffle_precent],arr)
+
+Partial().generate_test(2)
+
