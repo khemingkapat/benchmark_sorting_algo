@@ -32,7 +32,7 @@ class Writer(ABC):
 
 class Normal(Writer):
     def get_output(self) -> Tuple:
-        n = np.random.randint(0,5000)
+        n = np.random.randint(0,50_000)
         maximum = np.random.randint(0,101)
         minimum = np.random.randint(-100,0)
 

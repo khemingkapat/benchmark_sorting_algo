@@ -12,11 +12,9 @@ double time_function(void (*sort)(int*,int),int *arr,int n){
 
     clock_t end = clock();
 
-    return (double)(clock()-begin);
+    return (double)(end - begin);
+
 }
-
-
-
 
 
 #endif 
