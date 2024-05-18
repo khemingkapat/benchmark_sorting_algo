@@ -5,14 +5,16 @@
 #ifndef TIMEREPORT_H
 #define TIMEPEPORT_H
 
-double time_function(void (*sort)(int*,int),int *arr,int n){
-    clock_t begin = clock();
+float time_function(void (*sort)(int*,int),int *arr,int n){
+    clock_t t = clock();
     
     sort(arr,n);
 
-    clock_t end = clock();
+    t = clock() - t;
 
-    return (double)(end - begin);
+    float time_used = (float)t / CLOCKS_PER_SEC;
+    printf("tick used = %f\n",time_used);
+    return time_used;
 
 }
 
