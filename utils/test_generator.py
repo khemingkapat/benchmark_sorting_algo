@@ -42,7 +42,7 @@ class Normal(Writer):
 
 class Descend(Writer):
     def get_output(self)->Tuple:
-        n = np.random.randint(0,1_000_000)
+        n = np.random.randint(0,50_000)
         maximum = np.random.randint(0,101)
         minimum = np.random.randint(-100,0)
 
@@ -52,7 +52,7 @@ class Descend(Writer):
 
 class Partial(Writer):
     def get_output(self)->Tuple:
-        n = np.random.randint(0,1_000_000)
+        n = np.random.randint(0,50_000)
         maximum = np.random.randint(0,101)
         minimum = np.random.randint(-100,0)
 
@@ -71,5 +71,9 @@ class Partial(Writer):
 
             return ([n,minimum,maximum,shuffle_precent],arr)
 
-Normal().generate_test(1)
+Normal().generate_test(100)
+Descend().generate_test(100)
+Partial().generate_test(100)
+
+
 
