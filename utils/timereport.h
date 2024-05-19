@@ -7,10 +7,10 @@
 
 double time_function(void (*sort)(int*,int),int *arr,int n){
     clock_t t = clock();
-    puts("about to sort");
-    
+
+    printf("\ufeff");
     sort(arr,n);
-    puts("sorted");
+    printf("\ufeff");
 
     t = clock() - t;
 

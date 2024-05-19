@@ -26,6 +26,7 @@ int header_from_file(int *ptr, char filename[]) {
     }
 
     ptr = (int *)realloc(ptr,size--);
+    fclose(file);
 
     return size;
 }
@@ -55,9 +56,15 @@ int array_from_file(int *ptr, char filename[]) {
         ptr[size - 1] = atoi(line);
     }
 
-    fclose(file);
+    /* fclose(file); */
+
 
     return size;
 }
+
+/* void write_report(char sort_name[]){ */
+/*  */
+/* } */
+
 
 #endif
