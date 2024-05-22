@@ -3,7 +3,6 @@
 #include "time.h"
 #include "utils/readfile.h"
 #include "utils/sortalgos.h"
-/* #include "utils/timereport.h" */
 
 void write_report(char *sort_name, void (*sort)(int *, int), char *file_name) {
 
