@@ -69,10 +69,11 @@ class Partial(Writer):
             list_idx.pop(0)
             list_idx.pop(0)
 
-            return ([n,minimum,maximum,shuffle_precent],arr)
+            
+        return ([n,minimum,maximum,shuffle_precent],arr)
 
-Normal().generate_test(100)
-Descend().generate_test(100)
+# Normal().generate_test(100)
+# Descend().generate_test(100)
 Partial().generate_test(100)
 
 
