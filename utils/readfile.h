@@ -56,7 +56,7 @@ int array_from_file(int *ptr, char filename[]) {
         ptr[size - 1] = atoi(line);
     }
 
-    /* fclose(file); */
+    fclose(file);
 
 
     return size;

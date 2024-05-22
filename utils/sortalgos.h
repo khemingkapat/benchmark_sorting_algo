@@ -69,15 +69,19 @@ void merge(int *arr, int l, int m, int r) {
     }
 }
 
-void merge_sort(int *arr, int l, int r) {
+void merge_sort_rec(int *arr, int l, int r) {
     if (r - l == 0) {
         return;
     }
     int m = l + (r - l) / 2;
-    merge_sort(arr, l, m);
-    merge_sort(arr, m + 1, r);
+    merge_sort_rec(arr, l, m);
+    merge_sort_rec(arr, m + 1, r);
 
     merge(arr, l, m, r);
+}
+
+void merge_sort(int *arr,int n){
+    merge_sort_rec(arr, 0, n);
 }
 
 int partition(int *arr, int l, int r) {
@@ -108,11 +112,17 @@ int partition(int *arr, int l, int r) {
     return j;
 }
 
-void quick_sort(int *arr, int l, int r) {
+void quick_sort_rec(int *arr, int l, int r) {
     if (r - l <= 0) {
         return;
     }
     int pivot = partition(arr, l, r);
-    quick_sort(arr, l, pivot - 1);
-    quick_sort(arr, pivot + 1, r);
+    quick_sort_rec(arr, l, pivot - 1);
+    quick_sort_rec(arr, pivot + 1, r);
 }
+
+void quick_sort(int *arr,int n){
+    quick_sort_rec(arr,0,n);
+}
+
+
