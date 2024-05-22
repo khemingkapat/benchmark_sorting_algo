@@ -1,3 +1,4 @@
+Algo,FileName,TimeUsedMS
 bubble,./tests/descend1.txt,2.180000
 bubble,./tests/descend10.txt,4.988000
 bubble,./tests/descend100.txt,1933.357000
