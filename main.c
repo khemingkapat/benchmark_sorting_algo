@@ -30,7 +30,8 @@ int main(int argc, char **argv){
     /* write_report("insertion", insertion_sort, argv[1]); */
     /* write_report("selection", selection_sort, argv[1]); */
     /* write_report("merge", merge_sort, argv[1]); */
-    write_report("quick", quick_sort, argv[1]);
+    /* write_report("quick", quick_sort, argv[1]); */
+    write_report("flagged_bubble", flagged_bubble_sort, argv[1]);
 
 
     return 0;

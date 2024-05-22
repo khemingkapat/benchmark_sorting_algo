@@ -96,6 +96,7 @@ int partition(int *arr, int l, int r) {
         do {
             j--;
         } while (arr[j] > pivot_val);
+
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -125,4 +126,20 @@ void quick_sort(int *arr,int n){
     quick_sort_rec(arr,0,n);
 }
 
+void flagged_bubble_sort(int *arr,int n){
+    for(int i = n;i>=1;i--){
+        int swapped = 0;
+        for(int j = 1;j<i;j++){
+            if(arr[j-1] > arr[j]){
+                swapped = 1;
+                int temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+            }
+        }
+        if(!swapped){
+            return;
+        }
+    }
 
+}
