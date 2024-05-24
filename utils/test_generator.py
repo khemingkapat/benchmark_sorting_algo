@@ -72,9 +72,20 @@ class Partial(Writer):
             
         return ([n,minimum,maximum,shuffle_precent],arr)
 
+class Sorted(Writer):
+    def get_output(self)->Tuple:
+        n = np.random.randint(0,50_000)
+        maximum = np.random.randint(0,101)
+        minimum = np.random.randint(-100,0)
+
+        arr = np.sort(np.random.randint(minimum,maximum,n))
+
+        return ([n,minimum,maximum],arr)
+
+Sorted().generate_test(100)
 # Normal().generate_test(100)
 # Descend().generate_test(100)
-Partial().generate_test(100)
+# Partial().generate_test(100)
 
 
 
