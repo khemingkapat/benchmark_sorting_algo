@@ -3,3 +3,4 @@ tests/*
 !tests/normal1.txt
 !tests/partial1.txt
 !tests/descend1.txt
+!tests/sorted1.txt
