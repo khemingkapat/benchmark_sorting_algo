@@ -1,5 +1,5 @@
 {
-  description = "benchmarking 5 sorting algos";
+  description = "benchmarking 5 sorting algoss";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
